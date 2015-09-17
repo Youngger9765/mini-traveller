@@ -1,6 +1,6 @@
 class TravellersController < ApplicationController
 	def index
-  		@travellers = Traveller.all
+  		@travellers = Traveller.page(params[:page]).per(5)
 	end
 
 
@@ -43,7 +43,7 @@ class TravellersController < ApplicationController
   		@traveller.destroy
 
   		redirect_to :action => :index
-  		flash[:alert] = "event was successfully deleted"
+  		flash[:notice] = "successfully deleted"
 	end
 
 

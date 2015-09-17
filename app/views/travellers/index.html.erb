@@ -10,5 +10,6 @@
   </li>
 <% end %>
 </ul>
+<p><%= link_to 'New Event', new_traveller_path %></p>
 
-<%= link_to 'New Event', new_traveller_path %>
+<%= paginate @travellers %>
