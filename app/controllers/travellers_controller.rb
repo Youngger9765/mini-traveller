@@ -19,6 +19,11 @@ class TravellersController < ApplicationController
 		@traveller = Traveller.find( params[:id])
 	end
 
+	def edit
+		@traveller=Traveller.find( params[:id])
+		
+	end
+
 
 	private
 
