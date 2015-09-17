@@ -34,6 +34,13 @@ class TravellersController < ApplicationController
     	end
 	end
 
+	def destroy
+  		@traveller = Traveller.find(params[:id])
+  		@traveller.destroy
+
+  		redirect_to :action => :index
+	end
+
 
 
 	private
