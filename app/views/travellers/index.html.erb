@@ -6,7 +6,7 @@
     <%= t.city %>
     <%= link_to "Show", traveller_path(t) %>
     <%= link_to 'Edit', edit_traveller_path(t) %>
-    <%= button_to 'Delete', traveller_path(t), :method => :delete, :data => { :confirm => "Are you sure?" } %>
+    <%= link_to 'Delete', traveller_path(t), :method => :delete, :data => { :confirm => "Are you sure?" } %>
   </li>
 <% end %>
 </ul>

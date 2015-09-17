@@ -43,6 +43,7 @@ class TravellersController < ApplicationController
   		@traveller.destroy
 
   		redirect_to :action => :index
+  		flash[:alert] = "event was successfully deleted"
 	end
 
 
