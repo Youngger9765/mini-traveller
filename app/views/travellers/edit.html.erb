@@ -1,4 +1,4 @@
-<%= form_for @traveller, :url => travellers_path do |f| %>
+<%= form_for @traveller, :url => traveller_path(@traveller), :method => :patch do |f| %>
     <%= f.label :city, "City" %>
     <%= f.text_field :city %>
 

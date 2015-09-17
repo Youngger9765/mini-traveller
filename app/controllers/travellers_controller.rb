@@ -10,9 +10,12 @@ class TravellersController < ApplicationController
 
 	def create
   		@traveller = Traveller.new(traveller_params)
-  		@traveller.save
-
-  		redirect_to :action => :index
+  		if @traveller.save
+			redirect_to travellers_url
+      		flash[:notice] = "新增成功的訊息"
+    	else
+      		render :action => :new
+		end
 	end
 
 	def show
@@ -27,8 +30,9 @@ class TravellersController < ApplicationController
 		@traveller = Traveller.find( params[:id])
 
 		if @traveller.update(traveller_params)
-      		redirect_to traveller_path(@traveller)
-      		flash[:notice] = "it was successfully updated"
+
+      		redirect_to traveller_url(@traveller)
+      		flash[:notice] = "event was successfully updated"
     	else
       		render :action => :edit
     	end
@@ -46,7 +50,7 @@ class TravellersController < ApplicationController
 	private
 
 	def traveller_params
-  		params.require(:traveller).permit(:city, :date)
+  		params.require(:traveller).permit(:city, :date, :note)
 	end
 
 end
