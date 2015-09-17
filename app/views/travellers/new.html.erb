@@ -1,0 +1,12 @@
+<%= form_for @traveller, :url => travellers_path do |f| %>
+    <%= f.label :city, "City" %>
+    <%= f.text_field :city %>
+
+    <%= f.label :date, "Date" %>
+    <%= f.text_area :date %>
+
+    <%= f.label :note, "Note" %>
+    <%= f.text_area :note %>
+
+    <%= f.submit "Create" %>
+<% end %>
