@@ -1,4 +1,6 @@
 class TravellersController < ApplicationController
+	
+	before_action :set_traveller, :only =>[ :show, :edit, :update, :destroy]
 	def index
   		@travellers = Traveller.page(params[:page]).per(5)
 	end
@@ -19,15 +21,15 @@ class TravellersController < ApplicationController
 	end
 
 	def show
-		@traveller = Traveller.find( params[:id])
+		
 	end
 
 	def edit
-		@traveller = Traveller.find( params[:id])
+		
 	end
 
 	def update
-		@traveller = Traveller.find( params[:id])
+		
 
 		if @traveller.update(traveller_params)
 
@@ -39,7 +41,7 @@ class TravellersController < ApplicationController
 	end
 
 	def destroy
-  		@traveller = Traveller.find(params[:id])
+  		
   		@traveller.destroy
 
   		redirect_to :action => :index
@@ -49,6 +51,11 @@ class TravellersController < ApplicationController
 
 
 	private
+	def set_traveller
+		@traveller = Traveller.find(params[:id])
+	end
+
+
 
 	def traveller_params
   		params.require(:traveller).permit(:city, :date, :note)
