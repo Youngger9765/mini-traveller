@@ -2,7 +2,9 @@ class TravellersController < ApplicationController
 	
 	before_action :set_traveller, :only =>[ :show, :edit, :update, :destroy]
 	def index
-  		@travellers = Traveller.page(params[:page]).per(5)
+  		#@travellers = Traveller.page(params[:page]).per(5)
+  		#如果要做 id 遞降
+  		@travellers = Traveller.order("id DESC").page(params[:page]).per(5)
 	end
 
 
