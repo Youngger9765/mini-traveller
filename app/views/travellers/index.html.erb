@@ -1,15 +1,15 @@
 
 
-<ul>
+<table>
 <% @travellers.each do |t| %>
-  <li>
-    <%= t.city %>
-    <%= link_to "Show", traveller_path(t) %>
-    <%= link_to 'Edit', edit_traveller_path(t) %>
-    <%= link_to 'Delete', traveller_path(t), :method => :delete, :data => { :confirm => "Are you sure?" } %>
-  </li>
+ 	<tr>
+    	<td><%= t.city %></td>
+    	<td><%= link_to "Show", traveller_path(t) %></td>
+    	<td><%= link_to 'Edit', edit_traveller_path(t) %></td>
+    	<td><%= button_to 'Delete', traveller_path(t), :method => :delete, :data => { :confirm => "Are you sure?" } %></td>
+  	</tr>
 <% end %>
-</ul>
+</table>
 <p><%= link_to 'New Event', new_traveller_path %></p>
 
 <%= paginate @travellers %>

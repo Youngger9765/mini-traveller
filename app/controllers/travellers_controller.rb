@@ -33,9 +33,9 @@ class TravellersController < ApplicationController
 	def show
 		
 		respond_to do |format| 
-			format.html { @page_title = @event.name } # show.html.erb 
+			format.html { @page_title = @traveller.city } # show.html.erb 
 			format.xml # show.xml.builder 
-			format.json { render :json => { id: @event.id, name: @event.name }.to_json } 
+			format.json { render :json => { id: @traveller.id, city: @traveller.city }.to_json } 
 		end
 
 	end
