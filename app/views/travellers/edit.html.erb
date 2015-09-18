@@ -1,12 +1,6 @@
 <%= form_for @traveller, :url => traveller_path(@traveller), :method => :patch do |f| %>
-    <%= f.label :city, "City" %>
-    <%= f.text_field :city %>
+    
+    <%= render :partial => 'form', :locals => { :f => f } %>
 
-    <%= f.label :date, "Date" %>
-    <%= f.text_area :date %>
-
-    <%= f.label :note, "Note" %>
-    <%= f.text_area :note %>
-
-    <%= f.submit "Update" %>
+    <%= f.submit "Update",:class => "btn btn-primary" %>
 <% end %>
