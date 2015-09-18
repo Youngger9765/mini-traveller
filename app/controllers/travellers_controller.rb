@@ -45,7 +45,7 @@ class TravellersController < ApplicationController
   		@traveller.destroy
 
   		redirect_to :action => :index
-  		flash[:notice] = "successfully deleted"
+  		flash[:alert] = "successfully deleted"
 	end
 
 
