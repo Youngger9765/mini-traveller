@@ -2,21 +2,27 @@
 
 <table>
 	<tr>
-		<td><%= "city" %></td>
-    	<td><%= "date" %></td>
-    	<td><%= "note" %></td>
+		<td><%= "City" %></td>
+    	<td><%= "Date" %></td>
+    	
 	</tr>
 <% @travellers.each do |t| %>
 	
  	<tr>
-    	<td><%= t.city %></td>
-    	<td><%= t.date %></td>
-    	<td><%= t.note %></td>
-    	<td><%= link_to " (GET_XML)", traveller_path(t, :format => :xml) %></td>
-    	<td><%= link_to " (GET_JSON)", traveller_path(t, :format => :json) %></td>
-    	<td><%= link_to "Show", traveller_path(t), :class => "btn btn-primary" %></td>
-    	<td><%= link_to 'Edit', edit_traveller_path(t), :class => "btn btn-default" %></td>
-    	<td><%= button_to 'Delete', traveller_path(t), :class => "btn btn-danger", :method => :delete, :data => { :confirm => "Are you sure?" } %></td>
+    	<td>
+    	<%= t.city %>
+    	</td>
+    	<td>
+    	<%= t.date %>
+    	</td>
+    	
+		<td>    
+    	<%= link_to " (GET_XML)", traveller_path(t, :format => :xml), :class => "btn btn-default" %>
+    	<%= link_to " (GET_JSON)", traveller_path(t, :format => :json), :class => "btn btn-default" %>
+    	<%= link_to "Show", traveller_path(t), :class => "btn btn-primary" %>
+    	<%= link_to 'Edit', edit_traveller_path(t), :class => "btn btn-default" %>
+    	<%= link_to 'Delete', traveller_path(t), :method => :delete, :data =>{:confirm =>"R U SURE???"}, :class => "btn btn-danger" %>
+    	</td>
   	</tr>
 <% end %>
 </table>
