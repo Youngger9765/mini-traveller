@@ -1,9 +1,10 @@
 
-
+<h1>TRIP DIARY</h1>
 <table>
 	<tr>
 		<td><%= "City" %></td>
     	<td><%= "Date" %></td>
+    	
     	
 	</tr>
 <% @travellers.each do |t| %>
@@ -15,17 +16,43 @@
     	<td>
     	<%= t.date %>
     	</td>
+
+    	
     	
 		<td>    
-    	<%= link_to " (GET_XML)", traveller_path(t, :format => :xml), :class => "btn btn-default" %>
-    	<%= link_to " (GET_JSON)", traveller_path(t, :format => :json), :class => "btn btn-default" %>
     	<%= link_to "Show", traveller_path(t), :class => "btn btn-primary" %>
-    	<%= link_to 'Edit', edit_traveller_path(t), :class => "btn btn-default" %>
+    	<%= link_to 'Edit', travellers_path(:traveller_id => t), :class => "btn btn-default" %>
     	<%= link_to 'Delete', traveller_path(t), :method => :delete, :data =>{:confirm =>"R U SURE???"}, :class => "btn btn-danger" %>
     	</td>
   	</tr>
 <% end %>
 </table>
-<p><%= link_to 'New Event', new_traveller_path %></p>
+
+
+
 
 <%= paginate @travellers %>
+
+<%
+  if params[:traveller_id]
+    url = traveller_path(@traveller)
+  else
+    url = travellers_path
+  end
+%>
+
+
+<%= form_for @traveller, :url => url do |f| %>
+    
+	<% if @traveller.errors.any? %>
+    	<ul>
+      		<% @traveller.errors.full_messages.each do |m| %>
+      			<li><%= m %></li>
+    		<% end %>
+    	</ul>
+  	<% end %>
+
+	<%= render :partial => 'form', :locals => { :f => f } %>
+
+    <%= f.submit "Submit",:class => "btn btn-primary" %>
+<% end %>
