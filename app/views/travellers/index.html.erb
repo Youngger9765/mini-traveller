@@ -26,8 +26,8 @@
 <% end %>
 </table>
 
-
-
+<hr>
+  <%= link_to 'New Page', travellers_path, :class => "btn btn-default" %>
 
 <%= paginate @travellers %>
 
@@ -43,12 +43,12 @@
 <%= form_for @traveller, :url => url do |f| %>
     
 	<% if @traveller.errors.any? %>
-    	<ul>
-      		<% @traveller.errors.full_messages.each do |m| %>
-      			<li><%= m %></li>
-    		<% end %>
-    	</ul>
-  	<% end %>
+      <ul>
+          <% @traveller.errors.full_messages.each do |m| %>
+            <li><%= m %></li>
+        <% end %>
+      </ul>
+  <% end %>
 
 	<%= render :partial => 'form', :locals => { :f => f } %>
 
